@@ -1,0 +1,113 @@
+/*hacer variables*/
+:root{
+--w: calc(70vw/6);
+--h: calc(70vh/4);
+}
+
+/* ''*'' se usa para referirse  todo el contenido del html*/
+/* transicion de 0.5 segundos a todo lo de html*/
+
+*{
+    transition: all 0.5s;
+}
+
+/* la propiedad webkit-perpective es para darle un efecto 3d*/
+body {
+    padding: 0;
+    margin: 0;
+    -webkit-perspective: 1000;
+    background: powderblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: calibri;
+}
+
+
+div{
+    display: inline-block;
+}
+
+/* para llamar las variables del tamano ya echas de usa var(nombre variable)*/
+.area-tarjeta {
+    cursor: pointer;
+    width: var(--w);
+    height: var(--h);
+    min-width: 100px;
+
+}
+
+/* propiedad animacion para darle una animacion inicial a las tarjetas con lo ya escrito en el key*/
+.tarjeta {
+cursor: pointer;
+    width: var(--w);
+    height: var(--h);
+    min-width: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: iniciar 5s;
+}
+
+
+
+/* el backface es para ocultar una cara que no se quiera mostrar*/
+.superior {
+    cursor: pointer;
+    width: var(--w);
+    height: var(--h);
+    min-width: 100px;
+    background: linear-gradient(orange, darkorange);
+    position: absolute;
+backface-visibility: hidden;
+box-shadow: inset 0 0 0 5px white;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* el transform es para cambiar una figura , cara , etc*/
+.trasera {
+    cursor: pointer;
+
+    width: var(--w);
+    height: var(--h);
+    min-width: 100px;
+    background-color: lightgray;
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    box-shadow: inset 0 0 0 5px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen {
+width: var(--w);
+height: var(--h);
+}
+
+.boton{
+    background: linear-gradient(orange, darkorange);
+    border-radius: 40px;
+color: white;
+border: white 5px solid;
+padding: 20px;
+cursor: pointer;
+
+}
+
+
+/* estudiar sobre el keyframe y los %*/
+@keyframes iniciar{
+    20%, 90%{
+transform: rotateY(180deg);
+}
+0%,100%{
+    transform: rotateY(0deg);
+}
+
+}
